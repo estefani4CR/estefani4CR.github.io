@@ -1,0 +1,637 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+a {
+  /* Quitar el subrayado en los enlaces */
+  text-decoration: none;
+  color: black;
+}
+
+button:active {
+  box-shadow: 0px 0px 5px 5px rgba(157, 0, 255, 0.3);
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+/*  PARA TODAS LAS PÁGINAS
+
+    Encabezado: Contiene el logo, menú y el buscador
+    Contenido: Contiene lo que se mostrará principalmente al usuario
+    Pie de página: Contiene información sobre la empresa y un formulario de suscripción
+*/
+
+/* Para ENCABEZADO */
+.logo {
+  width: 9rem;
+}
+
+.menu-posicion li,
+.footer-posicion li {
+  display: inline;
+  padding: 9px;
+}
+
+/* Eliminar los iconos que estén dentro de menu-posicion */
+.menu-posicion i {
+  display: none;
+}
+
+.menu ul li a {
+  color: #220547;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.menu ul li a:hover {
+  color: #0089a1;
+  transition: color 0.3s ease-in-out;
+}
+
+/* MENÚ CON BOOTSTRAP Y SIN BOOTSTRAP */
+.menu-bootstrap {
+  display: none;
+}
+/* _________________________________ */
+/* Para CATALOGOS  */
+.marcar-titulos {
+  background: linear-gradient(
+    90deg,
+    rgba(198, 175, 255, 1) 9%,
+    rgba(130, 81, 255, 1) 34%,
+    rgba(50, 18, 131, 1) 59%
+  );
+  padding: 10px;
+}
+
+.nav .nav-item {
+  background-color: black;
+  color: white;
+}
+
+.menu_catalogo a {
+  color: black;
+}
+
+/* Para CONTENIDO */
+.img-motivacion {
+  width: 20rem;
+}
+
+.img-prendas {
+  width: 20rem;
+}
+
+/* Para FOOTER */
+/* .btn-suscribirse:hover {
+  color: white;
+  background-color: rgb(147, 121, 189);
+  text-shadow: 1px 1px 1px rgb(92, 67, 134);
+  box-shadow: 5px 5px 10px rgb(183, 157, 225);
+} */
+
+#correo {
+  padding-top: 3px;
+  width: 60%;
+  display: inline;
+}
+
+/* Colocar color degradado */
+.footer-posicion h3,
+.titulos {
+  background: #8020c9;
+  background: linear-gradient(to right, #6915a9 22%, #ad57e6 74%, #daa2ff 100%);
+  /*  
+    -webkit-background-clip: text;
+    Solo funciona en navegadores basados en webkit como Chrome o Safari 
+  */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ___________________ PARA CADA PÁGINA ___________________ */
+/* CATÁLOGO */
+
+/* Menú del catálogo */
+.contenido-catalogo {
+  padding-top: 50px;
+}
+
+.menu-ropa {
+  padding-left: 50px;
+}
+
+.menu_catalogo {
+  padding-top: 57px;
+}
+
+/* Ropa */
+.contenedor-imagenes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  overflow: hidden;
+  padding-bottom: 20px;
+}
+
+.contenedor-imagen {
+  display: inline-block;
+  margin: 20px;
+  text-align: center;
+}
+
+.contenedor-imagen img {
+  width: 80%;
+  max-width: 100%;
+  height: auto;
+}
+
+.contenedor-imagen p {
+  margin-top: 10px;
+  font-size: 16px;
+  color: #333;
+  font-weight: bold;
+}
+
+/* CONTÁCTENOS */
+.contactos li {
+  display: block;
+  padding: 10px;
+}
+
+/* DESCUENTOS */
+.tabla-descuentos td {
+  border: solid 2px black;
+  padding: 20px;
+  text-align: center;
+}
+
+.tabla-descuentos th {
+  border: solid 3px black;
+  padding: 20px;
+  text-align: center;
+}
+
+.rotar-derecha:hover {
+  transform: rotate(-5deg);
+}
+
+/* QUIENES SOMOS */
+.cont-logo-qs {
+  justify-self: center;
+  align-self: center;
+}
+
+.logo-qs {
+  width: 80%;
+}
+
+.sobre_nosotros {
+  padding-left: 4px;
+  width: 80%;
+}
+
+.sobre_nosostros h1 {
+  margin-top: 2em;
+  color: rgb(75, 6, 140);
+}
+
+.sobre_nosostros h2 {
+  margin-top: 2em;
+  color: blueviolet;
+}
+
+/* 
+                        GRID AREA 
+    Crear una clase para aplicar un GRID AREA y acomodar 
+    elementos fácilmente en todas las páginas
+
+*/
+.contenedor-Principal {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  grid-template-rows: 150px auto auto;
+  grid-template-areas:
+    "logo           menu-nav            menu-nav"
+    "contenido      contenido           contenido"
+    "footer         footer              footer";
+}
+
+/*               ENCABEZADO               */
+/*        (Logo, menú y buscador)        */
+
+.contenedor-Principal .logo-posicion {
+  grid-area: logo;
+  justify-self: center;
+  padding-right: 100px;
+  padding-left: 100px;
+}
+
+.menu-posicion ul {
+  display: grid;
+  grid-area: menu-nav;
+  padding-left: 40px;
+  padding-top: 40px;
+  grid-template-columns: repeat(4, 1fr);
+  /* grid-template-rows: repeat(2,1fr); */
+}
+
+.contenedor-Principal .buscador-posicion {
+  grid-area: buscador;
+  justify-self: center;
+  padding-top: 25px;
+} /* ---------------------------------  fin encabezado */
+
+/*             CONTENIDO INDEX           */
+.contenido-index {
+  padding: 4px;
+  display: grid;
+  grid-area: contenido;
+  grid-template-columns: repeat(3, auto);
+}
+
+.cont-motivacion {
+  /* border: solid 2px black; */
+  justify-self: start;
+}
+
+.cont-prendas {
+  /* border: solid 2px black; */
+  justify-self: end;
+}
+
+.descrip {
+  /* border: solid 2px black; */
+  justify-self: center;
+  width: 10rem;
+  padding: 2px;
+}
+
+/*                 FOOTER              */
+.contenedor-Principal .footer-posicion {
+  grid-area: footer;
+}
+
+.footer-posicion .contenedor_footer {
+  display: grid;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.contenedor_contacto {
+  justify-self: center;
+}
+
+.contenedor_quienes_somos {
+  justify-self: center;
+}
+
+.apartar-info{
+  display: none;
+}
+
+/* --------------------------------- fin footer */
+
+/* _____________________ CONTENEDORES DE LAS DEMÁS PÁGINAS _____________________ */
+/* CATÁLOGO GENRAL
+    Se utiliza para mostrar el menú del catálogo junto todas las prendas para mujeres y hombres
+*/
+.contenido-catalogo {
+  display: grid;
+  grid-area: contenido;
+  grid-template-columns: 1fr 3fr;
+}
+
+.contenido-catalogo {
+  justify-self: center;
+}
+
+.menu_catalogo {
+  justify-self: center;
+}
+/* CONTÁCTENOS */
+.contenido-contacto {
+  /* padding: 4px; */
+  display: grid;
+  grid-area: contenido;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(2, 1fr);
+}
+
+.info_sobre_contacto {
+  width: 80%;
+  justify-self: center;
+}
+
+.contactos {
+  justify-self: center;
+}
+
+/* DESCUENTOS */
+.contenido-descuentos {
+  display: grid;
+  grid-area: contenido;
+  grid-template-columns: 2fr 2fr;
+  justify-self: center;
+  padding-top: 50px;
+  padding-left: 50px;
+}
+
+.info-descuentos {
+  justify-self: center;
+}
+.descount {
+  padding-right: 100px;
+  padding-top: 40px;
+  align-self: center;
+}
+
+.img-descuento {
+  width: 100%;
+  height: 60%;
+  justify-self: start;
+  align-self: center;
+}
+
+/* QUIENES SOMOS */
+.contenido-quienes_somos {
+  padding: 4px;
+  display: grid;
+  grid-area: contenido;
+  grid-template-columns: repeat(2, auto);
+  grid-template-rows: repeat(2, auto);
+}
+
+.video-motivacional{
+  width: 25%;
+  padding: 20px;
+  justify-self: center;
+
+}
+
+/* _______ Formulario _______ */
+
+.formulario__mensaje {
+  height: auto;
+  width: auto;
+  line-height: 45px;
+  /* background-color: #cecece; */
+  padding: 0 15px;
+  border-radius: 3px;
+  box-shadow: 0px 0px 5px 5px rgba(157, 0, 255, 0.3);
+  border: solid 2px #6915a9;
+  display: none;
+}
+
+.resaltar__texto {
+  color: #6a14a3;
+}
+.formulario__input-error {
+  display: none;
+}
+
+/* ----- -----  Estilos para Validacion ----- ----- */
+.formulario__grupo-btn-enviar {
+  display: inline;
+  margin-left: 0;
+  flex-direction: column;
+  align-items: center;
+}
+
+.formulario__label {
+  display: block;
+  font-weight: 700;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.formulario__mensaje-activo {
+  display: block;
+}
+
+.formulario__input-error-activo,
+.aviso {
+  padding: 5px;
+  display: inline;
+}
+
+.formulario__mensaje-exito {
+  font-size: 14px;
+  color: #119200;
+  display: none;
+}
+
+.formulario__mensaje-exito-activo {
+  display: block;
+}
+
+/* _____________________ FIN GRID AREA _____________________  */
+
+@media screen and (max-width: 900px) {
+
+  .contenedor-Principal {
+    grid-template-rows: auto auto auto;
+  }
+
+  /* Ropa */
+  .contenedor-imagenes {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat (2, 1fr);
+  }
+
+  .contenedor-imagen {
+    display: inline-block;
+    margin: 30px;
+  }
+
+  .contenedor-imagen img {
+    width: 70%;
+    max-width: 100%;
+    height: auto;
+  }
+
+  
+  /* Menú */
+  .menu-sin-bootstrap {
+    display: none;
+  }
+  .menu-bootstrap {
+    display: block;
+  }
+  .contenedor-Principal .logo-posicion {
+    padding-top: 45px;
+    justify-self: center;
+  }
+
+  .contenedor-Principal .buscador-posicion {
+    justify-self: center;
+    padding-top: 70px;
+  }
+
+}
+
+/* MEDIA QUERY */
+@media screen and (max-width: 768px) {
+  .contenedor-Principal {
+    grid-template-columns: 10rem auto auto;
+    grid-template-rows: auto auto auto auto;
+    grid-template-areas:
+      "logo2           buscador            buscador"
+      "menu-nav2       menu-nav2            menu-nav2"
+      "contenido      contenido           contenido"
+      "footer         footer              footer";
+  }
+
+  .contenedor-Principal .logo-posicion {
+    padding-top: 35px;
+    grid-area: logo2;
+    justify-self: center;
+  }
+
+  .contenedor-Principal .buscador-posicion {
+    grid-area: buscador;
+    justify-self: center;
+    padding-top: 60px;
+  }
+
+  .contenedor-Principal .menu-posicion {
+    display: grid;
+    grid-area: menu-nav2;
+    justify-self: center;
+    grid-template-columns: repeat(4, auto);
+    padding-top: 2px;
+  }
+
+  /* Menú del catálogo */
+  .menu_catalogo {
+    padding-top: 43px;
+  }
+
+  .contenido-index {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .contenido-index .cont-prendas {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  /* ________________________________________ */
+  /* Ropa */
+  .contenedor-imagenes {
+    display: inline-block;
+  }
+
+  .contenedor-imagen {
+    display: inline-block;
+    margin: 30px;
+  }
+
+  .contenedor-imagen img {
+    width: 70%;
+    max-width: 100%;
+    height: auto;
+  }
+
+  .contenedor-imagen p {
+    margin-top: 10px;
+    font-size: 16px;
+    color: #333;
+    font-weight: bold;
+  }
+  /* _______________________________________________________ */
+
+  .contenido-index .descrip {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .contenido-index .cont-motivacion {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .contenedor_footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-top: 20px;
+  }
+
+  .contenedor_quienes_somos {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .contenedor_contacto {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .suscripcion {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .contenedor-Principal .footer-posicion {
+    grid-area: footer;
+  }
+  
+  .footer-posicion .contenedor_footer {
+    display: block;
+  }
+  
+  .contenedor_contacto {
+    justify-self: center;
+  }
+  
+  .contenedor_quienes_somos {
+    justify-self: center;
+  }
+
+  .suscripcion{
+    justify-self: center;
+    padding-top: 20px;
+  }
+
+  .contenido-descuentos{
+    grid-template-columns: 1fr;
+    justify-self: center;
+    grid-area: contenido;
+  }
+
+  
+  .video-motivacional{
+    position: relative;
+    width: 10rem;
+    right: 200px;
+    padding: 20px;
+    justify-self: center;
+
+  }
+  .img-descuento {
+    display: none;
+  }
+
+  .apartar-info{
+    display: block;
+  }
+  .espaciado-2{
+    padding-bottom: 20px;
+  }
+
+}
